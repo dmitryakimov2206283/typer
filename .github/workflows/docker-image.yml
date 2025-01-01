@@ -28,8 +28,8 @@ jobs:
       id: build_image
       run: |
         docker build . --file dockerfile --tag typer:$RELEASE_TAG
-        docker save typer:$RELEASE_TAG -o typer:$RELEASE_TAG
-        tar -czvf typer:$RELEASE_TAG.tar.gz typer:$RELEASE_TAG
+        docker save typer:$RELEASE_TAG -o typer_$RELEASE_TAG
+        tar -czvf typer_$RELEASE_TAG.tar.gz typer_$RELEASE_TAG
       env:
         RELEASE_TAG: ${{ steps.generate_release_tag.outputs.next_release_tag }}
       
