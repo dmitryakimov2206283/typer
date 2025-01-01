@@ -1,0 +1,10 @@
+@import url(__text-to-type/main__text-to-type.css);
+
+.main {
+    grid-area: main;
+    display: grid;
+    grid-template-rows: 80px auto;
+    grid-template-areas: 
+        "statusbar"
+        "text-to-type";
+}

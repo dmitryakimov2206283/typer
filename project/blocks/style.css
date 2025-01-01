@@ -2,6 +2,9 @@
 @import url(text-to-type/text-to-type.css);
 @import url(word/word.css);
 @import url(letter/letter.css);
+@import url(main/main.css);
+@import url(statusbar/statusbar.css);
+
 
 * {
     margin: 0;

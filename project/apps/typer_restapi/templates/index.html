@@ -8,28 +8,26 @@
     </head>
     <body class="body">
         <script src="{% static 'htmx.min.js' %}" type="text/javascript"></script>
-        <button hx-get="/randtitle">Get random title</button>
 
-        <div class="text-to-type body__text-to-type" tabindex="0">
-            <div class="word">
-                <letter>L</letter>
-                <letter>e</letter>
-                <letter>t</letter>
-                <letter>t</letter>
-                <letter>e</letter>
-                <letter>r</letter>
-                <letter>s</letter>
-                <letter>&nbsp</letter>
+        <button hx-get="/randtext" 
+                hx-swap="outerHTML"
+                hx-target=".text-to-type">Get random title</button>
+        <div class="main body__main">
+            <div class="statusbar main__statusbar">
+                <div>
+                    <span>Ошибки:</span>
+                    <span class="statusbar__mistakes_count">0</span>
+                </div>
+                <div>
+                    <span>Время:</span>
+                    <span class="statusbar__timer_value"></span>
+                </div>
             </div>
-            <div class="word">
-                <letter>s</letter>
-                <letter>m</letter>
-                <letter>i</letter>
-                <letter>l</letter>
-                <letter>e</letter>
+            <div class="text-to-type main__text-to-type" tabindex="0">
             </div>
         </div>
 
-        <script src="{% static 'text-to-type.js' %}"></script>
+        <script src="{% static 'data-binding.js' %}"></script>
+        <script src="{% static 'timer.js' %}"></script>
     </body>
 </html>

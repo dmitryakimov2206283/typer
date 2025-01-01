@@ -3,4 +3,5 @@
 
 letter {
     display: inline-block;
+    transition: all 47ms linear;
 }

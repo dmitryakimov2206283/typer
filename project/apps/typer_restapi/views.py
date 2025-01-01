@@ -18,3 +18,15 @@ def randtitle(request):
     if response.status_code == 200:
         data = response.json()
         return HttpResponse(f'<p>{data['text']}</p>')
+    
+def randtext(request):
+    headers = { 'Content-Type': 'application/json' }
+
+    response = requests.post(
+        'https://fish-text.ru/get?sentence=sentence&number=10&format=json',
+        headers=headers)
+
+    if response.status_code == 200:
+        data = response.json()
+        words = str(data['text']).split(' ')
+        return render(request, 'text-to-type.html', { 'words': words })

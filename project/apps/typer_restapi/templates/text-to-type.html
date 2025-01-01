@@ -1,0 +1,14 @@
+{% load static %}
+
+<div class="text-to-type main__text-to-type" tabindex="0">
+    {% for word in words %}
+    <div class="word">
+        {% for letter in word %}
+        <letter>{{ letter }}</letter>
+        {% endfor %}
+        <letter>&nbsp</letter>
+    </div>
+    {% endfor %}
+    
+    <script src="{% static 'text-to-type.js' %}"></script>
+</div>

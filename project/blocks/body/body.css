@@ -1,4 +1,4 @@
-@import url(__text-to-type/body__text-to-type.css);
+@import url(__main/body__main.css);
 
 .body {
     display: grid;
@@ -8,4 +8,5 @@
         "header"
         "main"
         "footer";
+    height: 100vh;
 }

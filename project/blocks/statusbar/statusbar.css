@@ -1,0 +1,8 @@
+@import url(__mistakes_count/statusbar__mistakes_count.css);
+@import url(__timer_value/statusbar__timer_value.css);
+
+.statusbar {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}

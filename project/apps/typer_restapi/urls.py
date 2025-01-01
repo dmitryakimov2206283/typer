@@ -4,5 +4,6 @@ from . import views
 
 urlpatterns = [
     path("", views.hello, name="hello"),
-    path("randtitle/", views.randtitle, name="randtitle")
+    path("randtitle/", views.randtitle, name="randtitle"),
+    path("randtext", views.randtext, name="randtext")
 ]

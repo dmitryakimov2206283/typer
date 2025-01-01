@@ -1,4 +1,8 @@
 .text-to-type {
-    font-size: 96px;
+    font-size: 40px;
     display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    height: 300px;
+    width: 900px;
 }
