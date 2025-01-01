@@ -30,6 +30,7 @@ jobs:
         docker build . --file dockerfile --tag typer:$RELEASE_TAG
         docker save typer:$RELEASE_TAG -o typer_$RELEASE_TAG
         tar -czvf typer_$RELEASE_TAG.tar.gz typer_$RELEASE_TAG
+        ls
       env:
         RELEASE_TAG: ${{ steps.generate_release_tag.outputs.next_release_tag }}
       
@@ -43,6 +44,9 @@ jobs:
         tag_name: ${{ steps.generate_release_tag.outputs.next_release_tag }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Log files in workdir
+      run: ls
 
     - name: Upload Docker image to release
       uses: actions/upload-release-asset@v1
