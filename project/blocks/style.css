@@ -1,0 +1,10 @@
+@import url(body/body.css);
+@import url(text-to-type/text-to-type.css);
+@import url(word/word.css);
+@import url(letter/letter.css);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

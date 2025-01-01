@@ -1,9 +1,35 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
-    <head></head>
-    <body>
-        {% load static %}
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+    <body class="body">
         <script src="{% static 'htmx.min.js' %}" type="text/javascript"></script>
         <button hx-get="/randtitle">Get random title</button>
+
+        <div class="text-to-type body__text-to-type" tabindex="0">
+            <div class="word">
+                <letter>L</letter>
+                <letter>e</letter>
+                <letter>t</letter>
+                <letter>t</letter>
+                <letter>e</letter>
+                <letter>r</letter>
+                <letter>s</letter>
+                <letter>&nbsp</letter>
+            </div>
+            <div class="word">
+                <letter>s</letter>
+                <letter>m</letter>
+                <letter>i</letter>
+                <letter>l</letter>
+                <letter>e</letter>
+            </div>
+        </div>
+
+        <script src="{% static 'text-to-type.js' %}"></script>
     </body>
 </html>

@@ -1,0 +1,11 @@
+@import url(__text-to-type/body__text-to-type.css);
+
+.body {
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: 60px auto 60px;
+    grid-template-areas: 
+        "header"
+        "main"
+        "footer";
+}

@@ -1,0 +1,6 @@
+@import url(letter_correct.css);
+@import url(letter_wrong.css);
+
+letter {
+    display: inline-block;
+}

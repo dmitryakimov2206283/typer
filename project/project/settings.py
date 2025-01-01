@@ -120,9 +120,9 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
     BASE_DIR / 'vendor',
-    BASE_DIR / 'blocks'
+    BASE_DIR / 'blocks',
+    BASE_DIR / 'js'
 ]
 
 # Default primary key field type

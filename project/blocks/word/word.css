@@ -1,0 +1,5 @@
+@import url(word_active.css);
+
+.word {
+    display: flex;
+}
