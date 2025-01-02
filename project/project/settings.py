@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'typer',
+        'USER': 'postgres',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '5432'
     }
 }
 
@@ -122,7 +126,8 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'vendor',
     BASE_DIR / 'blocks',
-    BASE_DIR / 'js'
+    BASE_DIR / 'js',
+    BASE_DIR / 'fonts'
 ]
 
 # Default primary key field type

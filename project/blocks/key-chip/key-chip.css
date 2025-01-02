@@ -1,0 +1,9 @@
+@import url(_size/key-chip_size-normal.css);
+@import url(_size/key-chip_size-small.css);
+
+.key-chip {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--color-key-chip-bg);
+    color: var(--color-key-chip-text);
+    border: 2px solid var(--color-key-chip-border);
+}

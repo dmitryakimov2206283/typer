@@ -1,0 +1,8 @@
+@import url(__text-input/login-form__text-input.css);
+@import url(__button/login-form__button.css);
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}

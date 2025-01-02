@@ -1,13 +1,41 @@
+@import url(fonts.css);
 @import url(body/body.css);
 @import url(text-to-type/text-to-type.css);
 @import url(word/word.css);
 @import url(letter/letter.css);
 @import url(main/main.css);
 @import url(statusbar/statusbar.css);
+@import url(header/header.css);
+@import url(login-form/login-form.css);
+@import url(invitation-header/invitation-header.css);
+@import url(key-chip/key-chip.css);
 
+:root {
+    --color-bg: #fff8f1;
+    --color-text-main: #6e6c68;
+    --color-key-chip-bg: #848484;
+    --color-key-chip-text: #2f2f2f;
+    --color-key-chip-border: #2f2f2f;
+}
+
+[data-theme="dark"] {
+    --color-bg: #221f1b;
+    --color-text-main: #968c7c;
+    --color-key-chip-bg: #848484;
+    --color-key-chip-text: #2f2f2f;
+    --color-key-chip-border: #2f2f2f;
+}
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+    font-family: 'Menlo', sans-serif;
+
+    color: var(--color-text-main);
+
+    transition-property: color, background-color;
+    transition-duration: 0.4s;
+    transition-timing-function: ease;
 }

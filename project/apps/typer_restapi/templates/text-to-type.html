@@ -1,6 +1,20 @@
 {% load static %}
 
-<div class="text-to-type main__text-to-type" tabindex="0">
+<div class="statusbar main__statusbar">
+    <div>
+        <span>Слова:</span>
+        <span class="statusbar__words_count">0</span>
+    </div>
+    <div>
+        <span>Ошибки:</span>
+        <span class="statusbar__mistakes_count">0</span>
+    </div>
+    <div>
+        <span>Время:</span>
+        <span class="statusbar__timer_value"></span>
+    </div>
+</div>
+<div class="text-to-type main__text-to-type" tabindex="0" autofocus>
     {% for word in words %}
     <div class="word">
         {% for letter in word %}

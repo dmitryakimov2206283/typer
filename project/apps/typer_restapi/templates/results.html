@@ -1,0 +1,10 @@
+<div>
+    <h1 style="text-align: center;">Ты успел ввести {{ words.0 }} слов <br> (а ошибок было {{ mistakes.0 }})</h1>
+    <div id="restart-typing"
+         hx-get="/randtext"
+         hx-swap="innerHTML"
+         hx-target=".main">
+        <span class="key-chip key-chip_size-small">Alt+R</span>
+        <span class="login-link__text">Рестарт</span>
+    </div>
+</div>

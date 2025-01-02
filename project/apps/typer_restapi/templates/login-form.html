@@ -1,0 +1,13 @@
+<form class="login-form" action="/login" method="post">
+    {% csrf_token %}
+
+    <input class="login-form__text-input" type="text" placeholder="Логин..." name="login" required> 
+    <input class="login-form__text-input" type="password" placeholder="Пароль..." name="password" required>
+
+    <button class="login-form__button" type="submit">Войти</button>
+    <button class="login-form__button" type="button">Отмена</button>
+
+    <a hx-get="/register_form"
+       hx-swap="innerHTML"
+       hx-target=".main">Зарегистрироваться</a>
+</form>

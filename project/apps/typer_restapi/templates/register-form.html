@@ -1,0 +1,9 @@
+<form class="login-form" action="/create_user" method="post">
+    {% csrf_token %}
+    <input class="login-form__text-input" type="text" placeholder="Логин..." name="login" required> 
+    <input class="login-form__text-input" type="password" placeholder="Пароль..." name="password" required>
+    <input class="login-form__text-input" type="text" placeholder="Имя профиля..." name="name" required>
+
+    <button class="login-form__button" type="submit">Зарегистрироваться</button>
+    <button class="login-form__button" type="button">Отмена</button>
+</form>

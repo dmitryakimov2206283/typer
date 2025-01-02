@@ -1,0 +1,17 @@
+<div>
+    <div>
+        <span>Пользователь:</span>
+        <span>{{ request.user.first_name }}</span>
+    </div>
+    <div>
+        <span>Макс. кол-во слов:</span>
+        <span>{{ words }}</span>
+    </div>
+    <div>
+        <span>При этом ошибок сделано:</span>
+        <span>{{ mistakes }}</span>
+    </div>
+    <a hx-get="/logout"
+       hx-swap="innerHTML"
+       hx-target="body">Выход</a>
+</div>
