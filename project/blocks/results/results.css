@@ -1,0 +1,8 @@
+@import url(__link-with-chip/results__link-with-chip.css);
+
+.results {
+    display: flex; 
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+}

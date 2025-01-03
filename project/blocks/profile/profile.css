@@ -1,0 +1,9 @@
+@import url(__link/profile__link.css);
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: start;
+}

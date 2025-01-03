@@ -1,18 +1,20 @@
-<table>
-    <thead>
-        <th>№</th>
-        <th>Пользователь</th>
-        <th>Макс. слов</th>
-        <th>При этом ошибок</th>
-    </thead>
-    <tbody>
-    {% for stat in user_stats %}
-    <tr>
-        <td>{{ forloop.counter }}</td>
-        <td>{{ stat.user.first_name }}</td>
-        <td>{{ stat.max_words_typed }}</td>
-        <td>{{ stat.mistakes_made }}</td>
-    </tr>
-    {% endfor %}
-    </tbody>
-</table>
+<div class="leaderboard main__leaderboard">
+    <table class="leaderboard__table">
+        <thead>
+            <th>№</th>
+            <th>Пользователь</th>
+            <th>Макс. слов</th>
+            <th>При этом ошибок</th>
+        </thead>
+        <tbody>
+        {% for stat in user_stats %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ stat.user.first_name }}</td>
+            <td>{{ stat.max_words_typed }}</td>
+            <td>{{ stat.mistakes_made }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

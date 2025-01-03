@@ -1,3 +1,3 @@
 .letter_wrong {
-    color: red;
+    color: var(--color-accent-wrong);
 }

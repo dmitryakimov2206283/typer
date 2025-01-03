@@ -1,0 +1,13 @@
+@keyframes blink {
+    0% { border-color: color-mix(in srgb, var(--color-key-chip-border) 100%, transparent 0%); }
+    50% { border-color: color-mix(in srgb, var(--color-key-chip-border) 0%, transparent 100%); }
+    100% { border-color: color-mix(in srgb, var(--color-key-chip-border) 100%, transparent 0%); }
+}
+
+.letter_current {
+    border-width: 0 0 4px 0;
+    border-color: var(--color-key-chip-border);
+    border-style: solid;
+    border-radius: 4px;
+    animation: blink 1s ease-in-out infinite;
+}

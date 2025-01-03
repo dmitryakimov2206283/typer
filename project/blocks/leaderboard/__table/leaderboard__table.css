@@ -1,0 +1,27 @@
+.leaderboard__table {
+    min-width: 700px;
+    border-collapse: collapse;
+}
+
+.leaderboard__table thead {
+    background-color: var(--color-key-chip-bg);
+}
+
+.leaderboard__table tbody {
+    
+}
+
+.leaderboard__table tr {
+    height: 35px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+.leaderboard__table th {
+    text-align: center;
+    color: var(--color-key-chip-text);
+}
+
+.leaderboard__table td {
+    text-align: center;
+}

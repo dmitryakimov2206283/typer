@@ -1,18 +1,18 @@
-let letterIndex = 0
-let wordIndex = 0
+var letterIndex = 0
+var wordIndex = 0
 
-let wordsCounter = new DataBinder(
+var wordsCounter = new DataBinder(
     document.getElementsByClassName("statusbar__words_count")[0], 0)
 
-let mistakesCounter = new DataBinder(
+var mistakesCounter = new DataBinder(
     document.getElementsByClassName("statusbar__mistakes_count")[0], 0)
 
-let timeCounter = new DataBinder(
+var timeCounter = new DataBinder(
     document.getElementsByClassName("statusbar__timer_value")[0])
 
-let timerDuration = 30 // In seconds
+var timerDuration = 30 // In seconds
 
-let timer = new CountDownTimer(timerDuration)
+var timer = new CountDownTimer(timerDuration)
 timer.onTick((mins, secs) => {
     secs = secs < 10 ? "0" + secs : secs
     timeCounter.change(mins + ":" + secs)
@@ -29,25 +29,23 @@ var words = textToType.getElementsByClassName("word")
 var currentWord = words[wordIndex]
 var currentWordLettersCount = currentWord.children.length
 
+// Init first letter
+currentWord.children[letterIndex].classList.add("letter_current")
+
 function typeLetter(e) {
     if (e.key == "Shift")
+        return
+
+    if (e.metaKey || e.ctrlKey || e.altKey)
         return
 
     if (e.key == " ")
         e.preventDefault()
 
     checkLetterCorrect(e.key)
-    letterIndex++
+    nextLetter()
 
-    // If the whole word has been typed...
-    if (letterIndex == currentWordLettersCount) {
-        // ...try to grab the next word
-        if (!nextWord())
-            stopTyping()
 
-        if ((wordIndex + 1) % 10 == 0)
-            scrollDown()
-    }
 }
 
 function checkLetterCorrect(letter) {
@@ -85,6 +83,26 @@ function nextWord() {
     }
 }
 
+function nextLetter() {
+    var oldLetterElement = currentWord.children[letterIndex]
+    oldLetterElement.classList.remove("letter_current")
+
+    letterIndex++
+
+    // If the whole word has been typed...
+    if (letterIndex == currentWordLettersCount) {
+        // ...try to grab the next word
+        if (!nextWord())
+            stopTyping()
+
+        if ((wordIndex + 1) % 10 == 0)
+            scrollDown()
+    }
+
+    var newLetterElement = currentWord.children[letterIndex]
+    newLetterElement.classList.add("letter_current")
+}
+
 function scrollDown() {
     console.log("SCROLL TRIGGERED")
 
@@ -105,7 +123,7 @@ async function stopTyping() {
 
     let response_results = await fetch("/results?" + urlParams)
         .then(response => { return response.text() })
-        .then(html => { main.innerHTML = html })
+        .then(html => { htmx.swap("#main", html, { swapStyle: 'innerHTML' }) })
 }
 
 textToType.addEventListener("keydown", typeLetter)

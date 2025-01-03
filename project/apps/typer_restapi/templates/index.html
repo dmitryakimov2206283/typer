@@ -4,42 +4,69 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="htmx-config"
+              content='{
+                "responseHandling": [
+                    {"code":"404", "swap": false, "error": true},
+                    {"code":"500", "swap": true, "target": "#error-container", "swapOverride": "innerHTML"},
+                    {"code": "...", "swap": true}
+                ]
+              }'>
         <link rel="stylesheet" href="{% static 'style.css' %}">
     </head>
     <body class="body body_theme-light">
-        <script src="{% static 'htmx.min.js' %}" type="text/javascript"></script>
-
-        <header class="header">
+        <header class="header body__header">
+            <div id="page-main-link"
+                 class="link-with-chip"
+                 hx-get="/"
+                 hx-swap="innerHTML"
+                 hx-target="body">
+                <span class="key-chip key-chip_size-small">Alt+M</span>
+                <span>Главная</span>
+            </div>
             {% if request.user.is_authenticated %}
-            <h1 hx-get="/profile"
-                hx-swap="innerHTML"
-                hx-target=".main">User: {{ request.user.first_name }} (GO TO PROFILE)</h1>
-            <h1 hx-get="/leaderboard"
-                hx-swap="innerHTML"
-                hx-target=".main">Leaderboard</h1>
-            {% else %}
-            <div id="login-link"
-                 hx-get="/login_form"
+            <div id="profile-link"
+                 class="link-with-chip"
+                 hx-get="/profile"
                  hx-swap="innerHTML"
                  hx-target=".main">
+                <span class="key-chip key-chip_size-small">Alt+P</span>
+                <span>Профиль ({{ request.user.first_name }})</span>
+            </div>
+            <div id="leaderboard-link"
+                 class="link-with-chip"
+                 hx-get="/leaderboard"
+                 hx-swap="innerHTML"
+                 hx-target=".main">
+                <span class="key-chip key-chip_size-small">Alt+W</span>
+                <span>Лидерборд</span>
+            </div>
+            {% else %}
+            <div id="login-link"
+                 class="link-with-chip"
+                 hx-get="/login_form"
+                 hx-swap="innerHTML"
+                 hx-target="#main">
                 <span class="key-chip key-chip_size-small">Alt+L</span>
-                <span class="login-link__text">Войти</span>
+                <span>Войти</span>
             </div>
             {% endif %}
-            <div id="theme-toggle">
+            <div id="theme-toggle"
+                 class="link-with-chip">
                 <span class="key-chip key-chip_size-small">Alt+T</span>
                 <span></span>
             </div>
         </header>
 
-        <div class="main body__main">
+        <div id="main" class="main body__main">
             <h1 id="invitation-header"
                 class="invitation-header main__invitation-header"
                 hx-get="/randtext"
                 hx-swap="innerHTML"
                 hx-target=".main">Чтобы начать тапни <span class="key-chip key-chip_size-normal">Enter</span></h1>
         </div>
-
+        
+        <script src="{% static 'htmx.min.js' %}" type="text/javascript"></script>
         <script src="{% static 'data-binding.js' %}"></script>
         <script src="{% static 'timer.js' %}"></script>
         <script src="{% static 'global-controls.js' %}"></script>

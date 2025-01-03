@@ -9,6 +9,14 @@
 @import url(login-form/login-form.css);
 @import url(invitation-header/invitation-header.css);
 @import url(key-chip/key-chip.css);
+@import url(results/results.css);
+@import url(link-with-chip/link-with-chip.css);
+@import url(link/link.css);
+@import url(successful_registration/successful_registration.css);
+@import url(profile/profile.css);
+@import url(error-message/error-message.css);
+@import url(leaderboard/leaderboard.css);
+@import url(text-secondary/text-secondary.css);
 
 :root {
     --color-bg: #fff8f1;
@@ -16,14 +24,18 @@
     --color-key-chip-bg: #848484;
     --color-key-chip-text: #2f2f2f;
     --color-key-chip-border: #2f2f2f;
+    --color-accent-valid: #0a6f0a;
+    --color-accent-wrong: #b00d0d;
 }
 
 [data-theme="dark"] {
     --color-bg: #221f1b;
     --color-text-main: #968c7c;
-    --color-key-chip-bg: #848484;
-    --color-key-chip-text: #2f2f2f;
-    --color-key-chip-border: #2f2f2f;
+    --color-key-chip-bg: #756659;
+    --color-key-chip-text: #ddd0b7;
+    --color-key-chip-border: #9f8e72;
+    --color-accent-valid: #69db69;
+    --color-accent-error: #f94646;
 }
 
 * {

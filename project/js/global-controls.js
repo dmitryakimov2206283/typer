@@ -1,16 +1,22 @@
 // Map <key_code>: <element_id>
-let keysTargets = {
+var keysTargets = {
     // Enter
     13: "invitation-header"
 }
 
-let altTargets = {
+var altTargets = {
     // L (Д)
     76: "login-link",
+    // M (Ь)
+    77: "page-main-link",
+    // P (З)
+    80: "profile-link",
     // R (К)
     82: "restart-typing",
     // T (Е)
-    84: "theme-toggle"
+    84: "theme-toggle",
+    // W (Ц)
+    87: "leaderboard-link"
 }
 
 function handleKeydownControl(e) {

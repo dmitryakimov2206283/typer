@@ -1,10 +1,12 @@
 @import url(__text-to-type/main__text-to-type.css);
 @import url(__invitation-header/main__invitation-header.css);
+@import url(__results/main__results.css);
+@import url(__login-form/main__login-form.css);
 
 .main {
     grid-area: main;
     display: grid;
-    grid-template-rows: 80px auto;
+    grid-template-rows: auto auto;
     grid-template-areas: 
         "statusbar"
         "text-to-type";

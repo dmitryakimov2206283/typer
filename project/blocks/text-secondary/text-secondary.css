@@ -1,0 +1,4 @@
+.text-secondary {
+    font-size: 20px;
+    color: color-mix(in srgb, var(--color-text-main) 100%, transparent 100%);
+}

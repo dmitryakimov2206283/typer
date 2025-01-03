@@ -1,8 +1,11 @@
 @import url(__text-input/login-form__text-input.css);
 @import url(__button/login-form__button.css);
+@import url(__submit-button/login-form__submit-button.css);
+@import url(__register-link/login-form__register-link.css);
 
 .login-form {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 5px;
 }

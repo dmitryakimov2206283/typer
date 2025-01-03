@@ -67,7 +67,7 @@ def login(request):
     user = django_authenticate(username=login, password=password)
 
     if user is None:
-        return JsonResponse({ 'message': "User not found" }, status=404)
+        return render(request, 'error-message.html', { 'message': "Пользователь не существует" }, status=500)
 
     django_login(request, user)        
 
@@ -81,9 +81,30 @@ def create_user(request):
     login = request.POST['login']
     password = request.POST['password']
     name = request.POST['name']
+    
+    if len(str(login).strip()) == 0:
+        return render(request, 'error-message.html', { 'message': "Не указан логин" }, status=500)
+
+    if str(login).find(" ") != -1:
+        return render(request, 'error-message.html', { 'message': "Логин не может содержать пробелы" }, status=500)
+
+    if len(str(password).strip()) == 0:
+        return render(request, 'error-message.html', { 'message': "Не указан пароль" }, status=500)
+
+    if str(password).find(" ") != -1:
+        return render(request, 'error-message.html', { 'message': "Пароль не может содержать пробелы" }, status=500)
+
+    if len(str(name).strip()) == 0:
+        return render(request, 'error-message.html', { 'message': "Не указано имя" }, status=500)
+
+    # Check login existance
+    login_exists = User.objects.filter(username=login).first() is not None
+
+    if login_exists:
+        return render(request, 'error-message.html', { 'message': "Логин уже занят" }, status=500)
 
     user = User.objects.create_user(username=login, email="n/a", password=password, first_name=name)
-    return redirect('/')
+    return render(request, 'successful-registration.html')
 
 def leaderboard(request):
     user_stats = UserStats.objects.order_by('-max_words_typed', 'mistakes_made')[:50]
@@ -91,15 +112,17 @@ def leaderboard(request):
     return render(request, 'leaderboard.html', { 'user_stats': user_stats })
 
 def update_user_stats(request):
-    if request.user is None:
-        return JsonResponse({ 'message': 'Без входа в профиль результаты не сохраняются' }, status=200)
-
     user_id = request.user.id
+
+    if user_id is None:
+        return JsonResponse({ 'message': 'Без входа в профиль результаты не сохраняются' }, status=200)
 
     total_words = request.GET['words']
     total_mistakes = request.GET['mistakes']
 
-    user_stats = UserStats.objects.filter(user_id=user_id).first()
+    user = User.objects.get(id=user_id)
+
+    user_stats = UserStats.objects.filter(user=user).first()
 
     try:
         if user_stats is None:
@@ -108,7 +131,7 @@ def update_user_stats(request):
                 max_words_typed = total_words,
                 mistakes_made = total_mistakes
             )
-        elif user_stats.max_words_typed <= total_words:
+        elif user_stats.max_words_typed <= int(total_words):
             user_stats.max_words_typed = total_words
             user_stats.mistakes_made = total_mistakes
             user_stats.save()

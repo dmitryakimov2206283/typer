@@ -1,13 +1,20 @@
-<form class="login-form" action="/login" method="post">
+<form class="login-form main__login-form" hx-post="/login" hx-target="body">
     {% csrf_token %}
+
+    <div id="error-container"></div>
 
     <input class="login-form__text-input" type="text" placeholder="Логин..." name="login" required> 
     <input class="login-form__text-input" type="password" placeholder="Пароль..." name="password" required>
 
-    <button class="login-form__button" type="submit">Войти</button>
-    <button class="login-form__button" type="button">Отмена</button>
+    <button class="login-form__button login-form__submit-button" type="submit">Войти</button>
+    <button class="login-form__button" 
+            type="button"
+            hx-get="/"
+            hx-swap="innerHTML"
+            hx-target="body">Отмена</button>
 
-    <a hx-get="/register_form"
+    <a class="login-form__register-link"
+       hx-get="/register_form"
        hx-swap="innerHTML"
        hx-target=".main">Зарегистрироваться</a>
 </form>

@@ -1,3 +1,10 @@
 .login-form__text-input {
-    width: 200px;
+    width: 300px;
+    height: 24px;
+    border-radius: 4px;
+    outline: none;
+    padding: 0 6px;
+    border: 1px solid var(--color-key-chip-border);
+    background-color: var(--color-bg);
+    color: var(--color-key-chip-text);
 }

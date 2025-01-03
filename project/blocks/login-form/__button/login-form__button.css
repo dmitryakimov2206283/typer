@@ -1,3 +1,11 @@
 .login-form__button {
-    width: 300px;
+    width: 200px;
+    background-color: var(--color-key-chip-bg);
+    border: 1px solid var(--color-key-chip-border);
+    border-radius: 4px;
+    color: var(--color-key-chip-text);
+}
+
+.login-form__button:hover {
+    background-color: color-mix(in srgb, var(--color-key-chip-bg) 65%, white 35%);
 }

@@ -3,7 +3,7 @@
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
-    height: 285px;
+    height: 280px;
     width: 900px;
     scroll-behavior: smooth;
 }

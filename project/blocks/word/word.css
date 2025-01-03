@@ -2,4 +2,5 @@
 
 .word {
     display: flex;
+    height: 46px;
 }

@@ -1,5 +1,5 @@
-const themeToggle = document.getElementById("theme-toggle")
-let currentTheme = localStorage.getItem("theme") || "light";
+var themeToggle = document.getElementById("theme-toggle")
+var currentTheme = localStorage.getItem("theme") || "light";
 
 caption = currentTheme === "dark" ? "Светлая тема" : "Темная тема";
 themeToggle.children[1].innerText = caption;

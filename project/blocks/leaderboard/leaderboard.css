@@ -1,0 +1,7 @@
+@import url(__table/leaderboard__table.css);
+
+.leaderboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

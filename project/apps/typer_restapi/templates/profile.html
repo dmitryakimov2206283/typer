@@ -1,17 +1,18 @@
-<div>
+<div class="profile">
     <div>
-        <span>Пользователь:</span>
+        <span><b>Пользователь:</b></span>
         <span>{{ request.user.first_name }}</span>
     </div>
     <div>
-        <span>Макс. кол-во слов:</span>
+        <span><b>Макс. кол-во слов:</b></span>
         <span>{{ words }}</span>
     </div>
     <div>
-        <span>При этом ошибок сделано:</span>
+        <span><b>При этом ошибок сделано:</b></span>
         <span>{{ mistakes }}</span>
     </div>
-    <a hx-get="/logout"
+    <a class="link profile__link"
+       hx-get="/logout"
        hx-swap="innerHTML"
        hx-target="body">Выход</a>
 </div>
